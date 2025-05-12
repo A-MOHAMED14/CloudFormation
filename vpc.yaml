@@ -21,8 +21,8 @@ Resources:
       Tags:
         - Key: Name
           Value: PublicSubnet1A
-    
-    PrivateSubnet1A:
+
+  AppPrivateSubnet1A:
     Type: "AWS::EC2::Subnet"
     Properties:
       VpcId: !Ref MyVPC
@@ -30,4 +30,14 @@ Resources:
       AvailabilityZone: !Select [0, !GetAZs ""]
       Tags:
         - Key: Name
-          Value: PublicSubnet1A
+          Value: AppPrivateSubnet1A
+
+  DatabasePrivateSubnet1A:
+    Type: "AWS::EC2::Subnet"
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: "172.16.3.0/24"
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      Tags:
+        - Key: Name
+          Value: DatabasePrivateSubent1A
