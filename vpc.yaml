@@ -133,10 +133,12 @@ Resources:
     Type: "AWS::EC2::Instance"
     Properties:
       InstanceType: t2.micro
-      KeyName: ami-000
+      KeyName: bastion
+      ImageId: ami-0fc32db49bc3bfbb1
       SubnetId: !Ref PublicSubnet2A
       SecurityGroupIds:
         - !Ref BastionSG
       Tags:
         - Key: Name
           Value: BastionHost
+          
