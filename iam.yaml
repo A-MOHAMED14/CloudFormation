@@ -14,3 +14,11 @@ Resources:
     Type: "AWS::IAM::Group"
     Properties:
       GroupName: "AminGroup"
+
+  # Attach User To Group
+  UserToGroup:
+    Type: "AWS::IAM::UserToGroupAddition"
+    Properties:
+      GroupName: !Ref MyIamGroup
+      Users:
+        - !Ref MyIAMUser
