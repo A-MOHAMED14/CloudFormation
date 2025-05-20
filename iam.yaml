@@ -22,3 +22,17 @@ Resources:
       GroupName: !Ref MyIamGroup
       Users:
         - !Ref MyIAMUser
+
+  # IAM Role for EC2
+  MyIamRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service: ["ec2.amazonaws.com"]
+            Action: ["sts:AssumeRole"]
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/PowerUserAccess"
