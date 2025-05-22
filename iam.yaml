@@ -24,7 +24,7 @@ Resources:
         - !Ref MyIAMUser
 
   # IAM Role for EC2
-  MyIamRole:
+  MyIAMRole:
     Type: "AWS::IAM::Role"
     Properties:
       AssumeRolePolicyDocument:
