@@ -49,5 +49,5 @@ Resources:
             Action:
               - "s3:GetObject"
             Resource: "*"
-        Roles:
-          - !Ref MyIAMRole
+      Roles:
+        - !Ref MyIAMRole
