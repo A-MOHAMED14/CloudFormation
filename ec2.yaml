@@ -168,3 +168,43 @@ Resources:
           FromPort: 80
           ToPort: 80
           CidrIp: "0.0.0.0/0"
+
+  # WebServerInstance2A
+  WebServerInstance2A:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      InstanceType: "t2.micro"
+      ImageId: "ami-0fc32db49bc3bfbb1"
+      SubnetId: !Ref PublicSubnet2A
+      SecurityGroupIds:
+        - !Ref WebServerSecurityGroup
+      Tags:
+        - Key: "Name"
+          Value: "WebServerInstance2A"
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash  
+          yum install -y httpd
+          systemctl start httpd
+          systemctl enable httpd
+          echo "Hello from my Web Server 2A" > /var/www/html/index.html
+
+    # WebServerInstance2B
+    WebServerInstance2B:
+      Type: "AWS::EC2::Instance"
+      Properties:
+        InstanceType: "t2.micro"
+        ImageId: "ami-0fc32db49bc3bfbb1"
+        SubnetId: !Ref PublicSubnet2B
+        SecurityGroupIds:
+          - !Ref WebServerSecurityGroup
+        Tags:
+          - Key: "Name"
+            Value: "WebServerInstance2B"
+        UserData:
+          Fn::Base64: !Sub |
+            #!/bin/bash  
+            yum install -y httpd
+            systemctl start httpd
+            systemctl enable httpd
+            echo "Hello from my Web Server 2B" > /var/www/html/index.html
