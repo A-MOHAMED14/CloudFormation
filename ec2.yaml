@@ -101,6 +101,9 @@ Resources:
       VpcId: !Ref MyVPC
       Port: 80
       Protocol: "HTTP"
+      Targets:
+        - Id: !Ref WebServerInstance2A
+        - Id: !Ref WebServerInstance2B
 
   # Listener for ALB
   MyListener:
