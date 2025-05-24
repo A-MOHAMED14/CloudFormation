@@ -180,7 +180,7 @@ Resources:
       EvaluationPeriods: "1"
       Threshold: "70"
       ComparisonOperator: GreaterThanThreshold
-      Dimension:
+      Dimensions:
         - Name: AutoScalingGroupName
           Value: !Ref MyAutoScalingGroup
       AlarmActions:
