@@ -2,9 +2,9 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: "S3 Statistic File Hosting"
 
 Resources:
-MyS3Bucket:
-  Type: "AWS::S3::Bucket"
-  Properties:
-    BucketName: "my-static-s3-bucket-am"
-    WebsiteConfiguration:
-      IndexDocument: "index.html"
+  MyS3Bucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      BucketName: "my-static-s3-bucket-am"
+      WebsiteConfiguration:
+        IndexDocument: "index.html"
